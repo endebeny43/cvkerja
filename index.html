@@ -3,57 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curriculum Vitae</title>
+    <title>CV - Mochamad Rahmatulloh</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
-        body { background: #ffffff; padding: 20px; line-height: 1.6; }
-        .cv-wrapper { max-width: 900px; margin: 0 auto; display: flex; border-radius: 20px; overflow: hidden; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Arial, sans-serif; }
+        body { background: #e6edf3; padding: 30px 20px; line-height: 1.7; }
 
-        /* --- KOLOM KIRI --- */
-        .kolom-kiri { width: 38%; background: #2c424b; color: white; padding: 35px 25px; }
-        .foto-bulat { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 25px; border: 4px solid rgba(255,255,255,0.2); }
-        .kolom-kiri h1 { font-size: 42px; font-weight: 700; text-align: center; margin-bottom: 5px; }
-        .jabatan { font-size: 20px; font-weight: 300; text-align: center; margin-bottom: 20px; opacity: 0.9; }
-        .deskripsi { font-size: 15px; margin-bottom: 35px; text-align: justify; opacity: 0.9; }
+        /* Bungkus Utama */
+        .cv-wrapper { max-width: 1000px; margin: 0 auto; display: flex; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
 
-        .kolom-kiri h2 { font-size: 26px; margin-bottom: 18px; font-weight: 600; border-bottom: 2px solid rgba(255,255,255,0.2); padding-bottom: 5px; }
-        .keahlian-list { list-style: none; font-size: 16px; }
-        .keahlian-list li { margin-bottom: 10px; padding-left: 22px; position: relative; }
-        .keahlian-list li::before { content: "●"; position: absolute; left: 0; color: rgba(255,255,255,0.7); font-size: 12px; top: 3px; }
+        /* ✨ BAGIAN KIRI - WARNA GRADASI MENARIK */
+        .kolom-kiri { width: 38%; 
+            background: linear-gradient(160deg, #1a3a4a 0%, #2c5c70 50%, #244f61 100%); 
+            color: white; padding: 40px 30px; position: relative; overflow: hidden; }
+        .kolom-kiri::before {
+            content: ""; position: absolute; top: -50%; right: -50%; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
+        }
+        .foto-bulat { width: 170px; height: 170px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 25px; border: 4px solid rgba(255,255,255,0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.2); position: relative; z-index: 2; }
+        .kolom-kiri h1 { font-size: 32px; font-weight: 700; text-align: center; margin-bottom: 6px; letter-spacing: 0.5px; position: relative; z-index: 2; }
+        .jabatan { font-size: 18px; font-weight: 300; text-align: center; margin-bottom: 20px; opacity: 0.95; color: #c8e6f0; position: relative; z-index: 2; }
+        .deskripsi { font-size: 15px; margin-bottom: 35px; text-align: justify; opacity: 0.92; position: relative; z-index: 2; }
 
-        .kontak-item { margin-bottom: 15px; display: flex; align-items: center; gap: 12px; font-size: 15px; }
-        .kontak-item svg { width: 20px; height: 20px; fill: white; flex-shrink: 0; }
+        .kolom-kiri h2 { font-size: 20px; margin-bottom: 15px; font-weight: 600; border-bottom: 2px solid rgba(255,255,255,0.25); padding-bottom: 6px; color: #e0f2f9; position: relative; z-index: 2; }
+        .keahlian-list, .hobi-list { list-style: none; font-size: 15px; position: relative; z-index: 2; }
+        .keahlian-list li, .hobi-list li { margin-bottom: 10px; padding-left: 22px; position: relative; }
+        .keahlian-list li::before, .hobi-list li::before { content: "✓"; position: absolute; left: 0; color: #80d8f0; font-size: 13px; font-weight: bold; }
 
-        /* --- KOLOM KANAN --- */
-        .kolom-kanan { width: 62%; padding: 35px 30px; color: #222; background: white; }
-        .kolom-kanan h2 { font-size: 28px; margin-bottom: 15px; font-weight: 700; border-bottom: 3px solid #2c424b; padding-bottom: 5px; display: inline-block; }
-        .data-pribadi-list { list-style: none; margin-bottom: 25px; font-size: 15px; }
-        .data-pribadi-list li { margin-bottom: 6px; }
-        .data-pribadi-list li strong { display: inline-block; min-width: 180px; }
+        .kontak-item { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; word-break: break-word; position: relative; z-index: 2; }
+        .kontak-item a { color: #e0f2f9; text-decoration: none; transition: all 0.2s ease; }
+        .kontak-item a:hover { color: #ffffff; text-shadow: 0 0 8px rgba(255,255,255,0.3); }
+        .kontak-item svg { width: 20px; height: 20px; fill: #80d8f0; flex-shrink: 0; margin-top: 3px; }
 
-        .pendidikan-list { list-style: none; margin-bottom: 25px; font-size: 15px; }
-        .pendidikan-list li { margin-bottom: 8px; display: flex; justify-content: space-between; }
+        /* ✨ BAGIAN KANAN - WARNA LATAR LEMBUT & SEIMBANG */
+        .kolom-kanan { width: 62%; padding: 40px 35px; 
+            background: linear-gradient(135deg, #f0f5f9 0%, #e7eff5 100%); 
+            color: #222; position: relative; }
+        .kolom-kanan::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at top right, rgba(44, 92, 112, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .kolom-kanan h2 { font-size: 22px; margin-bottom: 15px; font-weight: 700; border-bottom: 3px solid #2c5c70; padding-bottom: 6px; display: inline-block; color: #1a3a4a; position: relative; z-index: 1; }
+        .data-pribadi-list, .pendidikan-list { list-style: none; margin-bottom: 25px; font-size: 15px; position: relative; z-index: 1; }
+        .data-pribadi-list li, .pendidikan-list li { margin-bottom: 8px; display: flex; justify-content: space-between; flex-wrap: wrap; }
+        .data-pribadi-list li strong { min-width: 160px; flex-shrink: 0; color: #1a3a4a; }
         .pendidikan-list li span { font-weight: 500; }
 
-        .pengalaman-item { margin-bottom: 20px; }
-        .pengalaman-item h3 { font-size: 17px; font-weight: 600; }
-        .pengalaman-item .waktu { font-size: 14px; color: #444; margin-bottom: 8px; font-style: italic; }
+        .pengalaman-item { margin-bottom: 22px; position: relative; z-index: 1; }
+        .pengalaman-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 4px; color: #1a3a4a; }
+        .pengalaman-item .waktu { font-size: 14px; color: #4a6572; font-style: italic; margin-bottom: 8px; }
         .pengalaman-item ul { padding-left: 20px; font-size: 15px; }
         .pengalaman-item ul li { margin-bottom: 5px; }
 
-        .hobi-list { list-style: none; font-size: 15px; }
-        .hobi-list li { margin-bottom: 6px; padding-left: 22px; position: relative; }
-        .hobi-list li::before { content: "●"; position: absolute; left: 0; color: #2c424b; font-size: 12px; top: 3px; }
-
-        /* --- RESPONSIF & CETAK --- */
+        /* Responsif HP */
         @media (max-width: 768px) {
-            .cv-wrapper { flex-direction: column; border-radius: 0; }
-            .kolom-kiri, .kolom-kanan { width: 100%; }
-            .kolom-kiri { border-radius: 20px 20px 0 0; }
+            body { padding: 15px; }
+            .cv-wrapper { flex-direction: column; border-radius: 10px; }
+            .kolom-kiri, .kolom-kanan { width: 100%; padding: 25px 20px; }
+            .kolom-kiri { border-radius: 10px 10px 0 0; }
+            .foto-bulat { width: 140px; height: 140px; }
+            .kolom-kiri h1 { font-size: 26px; }
+            .data-pribadi-list li strong { min-width: auto; display: block; }
         }
+
         @media print {
             body { padding: 0; background: white; }
-            .cv-wrapper { box-shadow: none; border-radius: 0; }
+            .cv-wrapper { box-shadow: none; border-radius: 0; max-width: 100%; }
+            .kolom-kiri { background: #2c424b; }
+            .kolom-kanan { background: #ffffff; }
+            .kontak-item a { color: inherit; text-decoration: none; }
         }
     </style>
 </head>
@@ -61,44 +79,61 @@
     <div class="cv-wrapper">
         <!-- KOLOM KIRI -->
         <div class="kolom-kiri">
-            <img src="gambar1.jpg" alt="Foto Diri" class="foto-bulat">
-            <h1>Mochamad rahmatulloh</h1>
-            <p class="jabatan">Refractory installasion</p>
+            <img src="foto.jpg" alt="Foto Diri" class="foto-bulat">
+            <h1>MOCHAMAD RAHMATULLOH</h1>
+            <p class="jabatan">Tenaga Ahli Instalasi Refractory</p>
             <p class="deskripsi">
-                Saya mampu instalasi brick refractory sesuai drawing yang diberikan oleh owner,dan saya sangat disiplin dalam bekerja,saya mampu dan saya terbiasa bekerja sama dengan team lain 
+                Saya mampu instalasi brick refractory sesuai gambar yang diberikan oleh pemilik proyek. Sangat disiplin dalam bekerja, mampu dan terbiasa bekerja sama dengan tim lain, serta memiliki pengalaman dan sertifikasi dari perusahaan terkemuka.
             </p>
 
             <h2>KEAHLIAN</h2>
             <ul class="keahlian-list">
-                <li>Kepemimpinan</li>
-                <li>Kolaborasi Tim</li>
-                <li>Aplikasi Produktivitas</li>
-                <li>Manajemen Waktu</li>
-                <li>Keahlian Teknis Lainnya</li>
+                <li>Instalasi & Pemasangan Bata Tahan Api</li>
+                <li>Pemasangan Castable Refractory</li>
+                <li>Pemeliharaan Peralatan Refractory</li>
+                <li>Membaca Gambar Teknik / Drawing</li>
+                <li>Kepemimpinan & Kolaborasi Tim</li>
+                <li>Manajemen Waktu & Kualitas Kerja</li>
             </ul>
 
-            <h2>KONTAK</h2>
+            <h2>KONTAK & SOSIAL MEDIA</h2>
             <div class="kontak-item">
                 <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                +6285721439894
+                <a href="https://wa.me/6285721439894" target="_blank">+62 857-2143-9894 (WhatsApp)</a>
             </div>
             <div class="kontak-item">
                 <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                kp.buluh ds.nagrak kec.darangdan kab.purwakarta prov.jawa barat
+                Kp. Buluh, Ds. Nagrak, Kec. Darangdan, Kab. Purwakarta
             </div>
             <div class="kontak-item">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                mochamadrahmatulloh472@email.com
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:mochamadrahmatulloh472@email.com">mochamadrahmatulloh472@email.com</a>
             </div>
+            <div class="kontak-item">
+                <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <a href="https://linkedin.com/in/mochamad-rahmatulloh" target="_blank">LinkedIn Profil</a>
+            </div>
+            <div class="kontak-item">
+                <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.87 2.87 0 0 1 .93.14v-3.67a4.83 4.83 0 0 0-1.67-.32 4.85 4.85 0 0 0-4.85 4.85c0 2.68 2.18 4.86 4.86 4.86a4.85 4.85 0 0 0 2.87-.92 4.85 4.85 0 0 0 3.82 1.8 4.85 4.85 0 0 0 4.85-4.85V7.84a6.16 6.16 0 0 1-3.41 1.05z"/></svg>
+                <a href="https://tiktok.com/@rahmatulloh_tech" target="_blank">@rahmatulloh_tech (TikTok)</a>
+            </div>
+
+            <h2>HOBI</h2>
+            <ul class="hobi-list">
+                <li>Tenis Meja</li>
+                <li>Sepak Bola</li>
+                <li>Trading</li>
+                <li>Membuat & Mendesain Website</li>
+            </ul>
         </div>
 
         <!-- KOLOM KANAN -->
         <div class="kolom-kanan">
             <h2>DATA PRIBADI</h2>
             <ul class="data-pribadi-list">
-                <li><strong>Tempat tgl lahir</strong>: Purwakarta, 06-05-1998</li>
-                <li><strong>Alamat</strong>: kp.buluh ds.nagrak kec.darangdan kab.Purwakarta</li>
-                <li><strong>Nomor Telepon</strong>: +6285721439894</li>
+                <li><strong>Tempat, Tanggal Lahir</strong>: Purwakarta, 06 Mei 1998</li>
+                <li><strong>Alamat Lengkap</strong>: Kp. Buluh, Ds. Nagrak, Kec. Darangdan, Kab. Purwakarta</li>
+                <li><strong>Nomor Telepon</strong>: +62 857-2143-9894</li>
                 <li><strong>Jenis Kelamin</strong>: Laki-laki</li>
                 <li><strong>Agama</strong>: Islam</li>
                 <li><strong>Kewarganegaraan</strong>: Indonesia</li>
@@ -107,43 +142,41 @@
 
             <h2>PENDIDIKAN</h2>
             <ul class="pendidikan-list">
-                <li><span>SDN 3 NAGRAK</span> <span>(20-Jun-2011)</span></li>
-                <li><span>MTS ASSALAM</span> <span>(14-JUN-2014)</span></li>
-                <li><span>SMK KHARISMA NUSANTARA</span> <span>(23-Okt-2017)</span></li>
+                <li><span>SMK KHARISMA NUSANTARA</span> <span>(Lulus 23 Oktober 2017)</span></li>
+                <li><span>MTS ASSALAM</span> <span>(Lulus 14 Juni 2014)</span></li>
+                <li><span>SDN 3 NAGRAK</span> <span>(Lulus 20 Juni 2011)</span></li>
             </ul>
 
             <h2>PENGALAMAN KERJA</h2>
             <div class="pengalaman-item">
-                <h3>Refractory team / Tenaga ahli</h3>
-                <p class="waktu">PT.Wika Rekayasa Kontruksi| 16-Jun-2016 sampai 25-Nov-2016</p>
+                <h3>Refractory Maintenance / Tenaga Ahli</h3>
+                <p class="waktu">PT. ALDZAMA | 24 Juni 2024 – 05 Maret 2026</p>
                 <ul>
-                    <li>Pemasangan castable refractory dan pemasangan bata Api Di PT.RUM HEALTING SOLO PLANT </li>
-                    <li>saya berhasil sampai projeck selesai dan mendapatkan sertifikasi dari PT.wika rekayasa konstruksi</li>
-            </div>
-            <div class="pengalaman-item">
-                <h3>Refractory team/Tenaga ahli </h3>
-                <p class="waktu">PT.TERAS TEKHNIK PERDANA| 2-Nov-2023 Sampai 8-Jun-2024</p>
-                <ul>
-                    <li>Pemasangan bata Api di projeck PT.freeport indonesia smelter gresik</li>
-                    <li>Hasil kerja yang di capai saya mendapatkan sertifikasi dari PT.TERAS TEKHNIK PERDANA</li>
-           </div>
-           <div class="pengalaman-item">
-                <h3>Refractory Maintenance/Tenaga ahli </h3>
-                <p class="waktu">PT.ALDZAMA| 24-Jun-2024 sampai 5-Maret-2026</p>
-                <ul>
-                    <li>Pemeliharaan rutin bata Api di PT.freeport indonesia smelter gresik</li>
-                    <li>Hasil kerja yang di capai saya mendapatkan sertifikasi dari PT.ALDZAMA</li>
-                    
+                    <li>Pemeliharaan rutin dan perbaikan bata api di fasilitas PT. Freeport Indonesia Smelter Gresik</li>
+                    <li>Menerapkan standar keselamatan dan kualitas kerja tinggi</li>
+                    <li>Mendapatkan sertifikasi resmi dari PT. ALDZAMA</li>
                 </ul>
             </div>
 
-            <h2>HOBI</h2>
-            <ul class="hobi-list">
-                <li>tenis meja</li>
-                <li>sepak bola</li>
-                <li>trading</li>
-                <li>membuat dan mendesain website</li>
-            </ul>
+            <div class="pengalaman-item">
+                <h3>Refractory Team / Tenaga Ahli</h3>
+                <p class="waktu">PT. TERAS TEKNIK PERDANA | 02 November 2023 – 08 Juni 2024</p>
+                <ul>
+                    <li>Pemasangan bata api sesuai gambar teknis di proyek PT. Freeport Indonesia Smelter Gresik</li>
+                    <li>Bekerja secara disiplin dan berkoordinasi dengan tim lain</li>
+                    <li>Mendapatkan sertifikasi resmi dari PT. TERAS TEKNIK PERDANA</li>
+                </ul>
+            </div>
+
+            <div class="pengalaman-item">
+                <h3>Refractory Team / Tenaga Ahli</h3>
+                <p class="waktu">PT. Wika Rekayasa Konstruksi | 16 Juni 2016 – 25 November 2016</p>
+                <ul>
+                    <li>Pemasangan castable refractory dan bata api di PT. RUM Heating Solo Plant</li>
+                    <li>Berhasil menyelesaikan proyek tepat waktu dan sesuai standar</li>
+                    <li>Mendapatkan sertifikasi resmi dari PT. Wika Rekayasa Konstruksi</li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>
